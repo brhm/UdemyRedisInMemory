@@ -2,8 +2,13 @@
 @{
     ViewData["Title"] = "Show";
 
-    var zaman = ViewBag.Zaman == null ? "yok" : (string)ViewBag.Zaman;
+    var ZamanAbsoluteExpiration = ViewBag.ZamanAbsoluteExpiration == null ? "yok" : (string)ViewBag.ZamanAbsoluteExpiration;
+    var ZamanSlideExpiration = ViewBag.ZamanSlideExpiration == null ? "yok" : (string)ViewBag.ZamanSlideExpiration;
+    var ZamanSlideAbsoluteExpiration = ViewBag.ZamanSlideAbsoluteExpiration == null ? "yok" : (string)ViewBag.ZamanSlideAbsoluteExpiration;
 }
 
 <h1>Show</h1>
-@zaman
+<span>ZamanAbsoluteExpiration : @ZamanAbsoluteExpiration</span>
+<span>ZamanSlideExpiration : @ZamanSlideExpiration</span>
+<span>ZamanSlideAbsoluteExpiration : @ZamanSlideAbsoluteExpiration</span>
+
