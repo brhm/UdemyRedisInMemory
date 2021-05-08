@@ -31,9 +31,13 @@ namespace InMemoryApp.Web.Controllers
             _memoryCache.Set<string>("ZamanSlideExpiration", DateTime.Now.ToString(), optionsSlide);
 
 
+
+
             MemoryCacheEntryOptions optionsSlideAbsolude = new MemoryCacheEntryOptions();
             optionsSlideAbsolude.SlidingExpiration = TimeSpan.FromSeconds(10); //   SlidingExpiration her işlemde 10 sn ileri atar.
-            optionsSlideAbsolude.AbsoluteExpiration = DateTime.Now.AddSeconds(30); //   SlidingExpiration her işlemde 10 sn ileri atar. AbsoluteExpiration  süresi dolunca tüm cache silinir. birlikte kullanılmaları daha efektif olur.
+            optionsSlideAbsolude.AbsoluteExpiration = DateTime.Now.AddMinutes(1); //   SlidingExpiration her işlemde 10 sn ileri atar. AbsoluteExpiration  süresi dolunca tüm cache silinir. birlikte kullanılmaları daha efektif olur.
+
+            optionsSlideAbsolude.Priority = CacheItemPriority.High;// cache dolarsa db de silinecek cachelerin önceliğini belirleyebilir. yada bazı cacheleri hiç sildirmeye biliriz.
 
             _memoryCache.Set<string>("ZamanSlideAbsoluteExpiration", DateTime.Now.ToString(), optionsSlideAbsolude);
 
