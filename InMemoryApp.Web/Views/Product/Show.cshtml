@@ -5,10 +5,17 @@
     var ZamanAbsoluteExpiration = ViewBag.ZamanAbsoluteExpiration == null ? "yok" : (string)ViewBag.ZamanAbsoluteExpiration;
     var ZamanSlideExpiration = ViewBag.ZamanSlideExpiration == null ? "yok" : (string)ViewBag.ZamanSlideExpiration;
     var ZamanSlideAbsoluteExpiration = ViewBag.ZamanSlideAbsoluteExpiration == null ? "yok" : (string)ViewBag.ZamanSlideAbsoluteExpiration;
+
+    var callback = ViewBag.callback == null ? "yok" : (string)ViewBag.callback;
 }
 
 <h1>Show</h1>
 <span>ZamanAbsoluteExpiration : @ZamanAbsoluteExpiration</span>
+<br />
 <span>ZamanSlideExpiration : @ZamanSlideExpiration</span>
+<br />
 <span>ZamanSlideAbsoluteExpiration : @ZamanSlideAbsoluteExpiration</span>
+<br />
+<span>callback : @callback</span>
+<br />
 

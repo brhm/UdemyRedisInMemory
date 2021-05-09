@@ -39,6 +39,14 @@ namespace InMemoryApp.Web.Controllers
 
             optionsSlideAbsolude.Priority = CacheItemPriority.High;// cache dolarsa db de silinecek cachelerin önceliğini belirleyebilir. yada bazı cacheleri hiç sildirmeye biliriz.
 
+            // buradaki delegeyi ayrı method olarakta yazıp çağıra bilirdik. yada  
+            optionsSlideAbsolude.RegisterPostEvictionCallback((key, value, reason, state) =>
+            {
+                _memoryCache.Set<string>("callback", $"cache sonlanma : {key} - {value} - {reason} -");
+            });
+
+
+
             _memoryCache.Set<string>("ZamanSlideAbsoluteExpiration", DateTime.Now.ToString(), optionsSlideAbsolude);
 
 
@@ -68,6 +76,9 @@ namespace InMemoryApp.Web.Controllers
             _memoryCache.TryGetValue<string>("ZamanSlideAbsoluteExpiration", out string zamanCacheSlideAbsolute);
             ViewBag.ZamanSlideAbsoluteExpiration = zamanCacheSlideAbsolute;
             //ViewBag.Zaman= _memoryCache.Get<string>("zaman");
+
+            _memoryCache.TryGetValue<string>("callback", out string callback);
+            ViewBag.callback = callback;
 
             return View();
         }
