@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using InMemoryApp.Web.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
@@ -44,10 +45,9 @@ namespace InMemoryApp.Web.Controllers
             {
                 _memoryCache.Set<string>("callback", $"cache sonlanma : {key} - {value} - {reason} -");
             });
-
-
-
             _memoryCache.Set<string>("ZamanSlideAbsoluteExpiration", DateTime.Now.ToString(), optionsSlideAbsolude);
+
+            _memoryCache.Set<Product>("product",new Product() { Id=1, Name="Kalem", Price=25.5M, Stock=10});
 
 
             return View();
@@ -79,6 +79,9 @@ namespace InMemoryApp.Web.Controllers
 
             _memoryCache.TryGetValue<string>("callback", out string callback);
             ViewBag.callback = callback;
+
+            _memoryCache.TryGetValue<Product>("product", out Product product);
+            ViewBag.Product = product;
 
             return View();
         }

@@ -7,6 +7,9 @@
     var ZamanSlideAbsoluteExpiration = ViewBag.ZamanSlideAbsoluteExpiration == null ? "yok" : (string)ViewBag.ZamanSlideAbsoluteExpiration;
 
     var callback = ViewBag.callback == null ? "yok" : (string)ViewBag.callback;
+
+    var product = ViewBag.Product == null ? new Product() : (Product)ViewBag.Product;
+
 }
 
 <h1>Show</h1>
@@ -18,4 +21,5 @@
 <br />
 <span>callback : @callback</span>
 <br />
+<h3>@product.Id - @product.Name - @product.Price - @product.Stock </h3>
 
