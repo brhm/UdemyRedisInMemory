@@ -5,9 +5,20 @@
     var name = ViewBag.Name == null ? "yok" : (string)ViewBag.Name;
     var surname = ViewBag.Surname == null ? "yok" : (string)ViewBag.Surname;
 
+    var product = ViewBag.Product == null ? new Product() : (Product)ViewBag.Product;
+
+    var product2 = ViewBag.Product2 == null ? new Product() : (Product)ViewBag.Product2;
+
+
+
 }
 
 <h1>Show</h1>
 <h2>@name</h2>
 <h2>@surname</h2>
+
+<h2>@product.Id - @product.Name - @product.Price </h2>
+<br />
+<h2>@product2.Id - @product2.Name - @product2.Price </h2>
+
 
