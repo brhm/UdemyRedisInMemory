@@ -124,3 +124,4 @@ C:\Users\helpdesk5\source\repos\UdemyRedisInMemory\RedisExchangeAPI.Web\bin\Debu
 C:\Users\helpdesk5\source\repos\UdemyRedisInMemory\RedisExchangeAPI.Web\obj\Debug\net5.0\Razor\Views\StringType\Index.cshtml.g.cs
 C:\Users\helpdesk5\source\repos\UdemyRedisInMemory\RedisExchangeAPI.Web\obj\Debug\net5.0\Razor\Views\StringType\Show.cshtml.g.cs
 C:\Users\helpdesk5\source\repos\UdemyRedisInMemory\RedisExchangeAPI.Web\obj\Debug\net5.0\Razor\Views\ListType\Index.cshtml.g.cs
+C:\Users\helpdesk5\source\repos\UdemyRedisInMemory\RedisExchangeAPI.Web\obj\Debug\net5.0\Razor\Views\SetType\Index.cshtml.g.cs
