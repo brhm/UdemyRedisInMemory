@@ -22,7 +22,41 @@ namespace RedisExchangeAPI.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            HashSet<string> nameList = new HashSet<string>();
+
+            if (db.KeyExists(setKey))
+            {
+                //db.SortedSetScan(setKey).ToList().ForEach(x =>
+                //{
+                //    //x.Element
+                //    //x.Score
+                //    nameList.Add(x.Element.ToString());
+                //});
+
+                db.SortedSetRangeByRank(setKey,order:Order.Descending).ToList().ForEach(x =>
+                {
+                    nameList.Add(x.ToString());
+                });
+
+            }
+
+            return View(nameList);
+        }
+        public IActionResult Add(string name,int score)
+        {
+            if (!db.KeyExists(setKey))
+            {
+                db.KeyExpire(setKey, DateTime.Now.AddMinutes(1));
+            }
+            db.SortedSetAdd(setKey, name, score);
+
+            return RedirectToAction("Index");
+        }
+        public async Task<IActionResult> Delete(string name)
+        {
+            await db.SortedSetRemoveAsync(setKey, name);
+
+            return RedirectToAction("Index");
         }
     }
 }
